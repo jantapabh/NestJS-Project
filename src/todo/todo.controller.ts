@@ -14,7 +14,7 @@ export class TodoController {
     //เมธอดดึงข้อมูล
     @Get()
     getTodos() {
-        return [1, 2, 3]
+        return this.todoService.getTodos()
     }
 
     //เมธอดแสดงค่า
