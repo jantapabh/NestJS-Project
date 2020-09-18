@@ -8,11 +8,15 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get() //Get Method
-  getHello(): string {
-    return this.appService.getHello();
+  getHello1(): string {
+    return "Hello 1";
+  }
+
+  @Get('/hello2') //Get Method
+  getHello2(): string {
+    return "Hello 2";
   }
 
 
 
-  
 }
