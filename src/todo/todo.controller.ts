@@ -20,6 +20,8 @@ export class TodoController {
     //เมธอดแสดงค่า
     @Post()
     postTodo(@Body("title") title: string, @Body("subtitle") subtitle: string) {
+        
+        //เรียก service addTodo จาก todo.service ด้วย controller
         this.todoService.addTodo(title, subtitle);
     }
 
