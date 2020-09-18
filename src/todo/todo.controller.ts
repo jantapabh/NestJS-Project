@@ -5,10 +5,7 @@ import { TodoService } from './todo.service';
 export class TodoController {
 
     //Constructor
-
-    constructor(private todoService:TodoService){
-
-    }
+    constructor(private todoService:TodoService){}
 
     //เมธอดดึงข้อมูล
     @Get()
