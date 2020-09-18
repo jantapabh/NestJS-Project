@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Todo } from './todo.entity';
+import * as uuid from 'uuid';
 
 //Service is คล้ายคลาส โดยไฟล์นี้สามารถทำการเรียกจาก service ด้วยกันเองผ่าน constructor
 
@@ -17,7 +18,7 @@ export class TodoService {
     
         //ข้อความที่ส่งไป
         const todo = new Todo();
-        todo.id = "1";
+        todo.id = uuid();  //เรียกการสุ่มค่า id จาก uuid
         todo.title = title;
         todo.subtitle = subtitle;
 
