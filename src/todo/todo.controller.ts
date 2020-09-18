@@ -27,6 +27,6 @@ export class TodoController {
 
         console.log(`id: ${id}`);
 
-        return `id is ${id}`
+        return this.todoService.removeTodoById(id);
     }
 }

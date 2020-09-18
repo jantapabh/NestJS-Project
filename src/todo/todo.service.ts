@@ -41,8 +41,10 @@ export class TodoService {
         if(!found){
                throw new NotFoundException(`Todo with ${id} not Found`)
         }
-
-        return this.todoArray.filter(item=>{return item.id != id})
+        
+        // ส่วน Backup ข้อมูลในตัวแปรเมื่อลบค่าไหนก็จะแสดงเฉพาะค่าที่มีเท่านั้น
+        this.todoArray = this.todoArray.filter(item=>{return item.id != id})
+        return this.todoArray
     }
 }
 
