@@ -18,6 +18,8 @@ export class TodoService {
         todo.id = "1"
         todo.title = title;
         todo.subtitle = subtitle;
+
+        
         this.todoArray.push(todo)
     }
 

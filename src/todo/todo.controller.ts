@@ -8,7 +8,6 @@ export class TodoController {
 
     constructor(private todoService:TodoService){
 
-
     }
 
     //เมธอดดึงข้อมูล
