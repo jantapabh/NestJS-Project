@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Todo } from './todo.entity';
-import * as uuid from 'uuid';
+// import * as uuid from 'uuid';
+import { v1 as uuidv1 } from 'uuid';
 
 //Service is คล้ายคลาส โดยไฟล์นี้สามารถทำการเรียกจาก service ด้วยกันเองผ่าน constructor
 
@@ -18,7 +19,8 @@ export class TodoService {
     
         //ข้อความที่ส่งไป
         const todo = new Todo();
-        todo.id = uuid();  //เรียกการสุ่มค่า id จาก uuid
+
+        todo.id = uuidv1();  //เรียกการสุ่มค่า id จาก uuid
         todo.title = title;
         todo.subtitle = subtitle;
 
@@ -28,6 +30,19 @@ export class TodoService {
 
     getTodos(){
         return this.todoArray
+    }
+
+    //การลบข้อมูลโดยกำหนดค่าผ่าน ID
+    removeTodoById(id:string){
+
+        const found = this.todoArray.find(item => item.id === id)
+        //เป็นการเช้คค่าตัวแปรไหนที่ตรงกับค่า id ในอาเรย์จะทำงานตามคำสั่ง
+        //ถ้าเข้าเงื่อนไขแสดงว่าไม่เจอ
+        if(!found){
+               throw new NotFoundException(`Todo with ${id} not Found`)
+        }
+
+        return this.todoArray.filter(item=>{return item.id != id})
     }
 }
 
