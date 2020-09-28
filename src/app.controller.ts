@@ -12,6 +12,7 @@ export class AppController {
     return "Hello 1";
   }
 
+  
   @Get('/hello2') //Get Method
   getHello2(): string {
     return "Hello 2";
